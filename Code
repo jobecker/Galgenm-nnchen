@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+#include <time.h>
+#include <stdlib.h>
+
+void getWord(char wort[]){
+	
+	int i;
+	FILE* pointer;
+	int grenze = ((double)rand()/(double)RAND_MAX)*7;
+	pointer = fopen("wortschatz.txt","r");
+	if(pointer == NULL)
+		return NULL;
+	printf("%d",grenze);
+	for(i=0;i<grenze;i=i+1)
+		fscanf(pointer,"%s",wort);
+	fclose(pointer);
+}
+
+int main(){
+	srand(time(NULL));
+	char wort[400];
+	getWord(wort);
+	printf("%s",wort);
+	
+}
